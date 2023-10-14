@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Editor</title>
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <h1 class="section-title">My Text Editor</h1>
+      <!-- editor  -->
+      <div class="editor">
+        <div class="menu-btns-interface">
+          <div id="typographies" class="left-interface">
+            <div class="typography" id="bold">B</div>
+            <div class="typography" id="italic">I</div>
+            <div class="typography" id="underline">U</div>
+          </div>
+          <!--  -->
+          <div id="alignments" class="middle-interface">
+            <div class="alignment" id="left-align">left</div>
+            <div class="alignment" id="center-align">center</div>
+            <div class="alignment" id="right-align">right</div>
+            <div class="alignment" id="justify-align">justify</div>
+          </div>
+          <!--  -->
+          <div class="right-interface">
+            <input type="color" name="color" id="color-gen" />
+          </div>
+        </div>
+        <div class="border"></div>
+        <!-- textarea -->
+        <div class="textarea-interface">
+          <textarea id="textarea" rows="12"></textarea>
+        </div>
+      </div>
+    </section>
+    <!-- script -->
+    <script src="script.js"></script>
+  </body>
+</html>
