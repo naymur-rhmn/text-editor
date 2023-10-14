@@ -3,7 +3,10 @@ const alignmentsElem = document.getElementById('alignments');
 const boldElem = document.getElementById('bold');
 const italicElem = document.getElementById('italic');
 const underlineElem = document.getElementById('underline');
-const textareaElem = document.getElementById('textarea');
+
+const selectElem = document.getElementById('font-size');
+const textColorElem = document.getElementById('text-color');
+const textEditor = document.getElementById('textarea');
 
 // event dalegation on typographiesElem
 typographiesElem.addEventListener('click', function (e) {
@@ -15,21 +18,21 @@ typographiesElem.addEventListener('click', function (e) {
     const typoElemId = e.target.getAttribute('id');
     // apply style based on condition for bold
     if (typoElemId === 'bold' && toggle) {
-      textareaElem.style.fontWeight = 'bold';
+      textEditor.style.fontWeight = 'bold';
     } else if (typoElemId === 'bold' && !toggle) {
-      textareaElem.style.fontWeight = 'normal';
+      textEditor.style.fontWeight = 'normal';
     }
     // apply style based on condition for italic
     if (typoElemId === 'italic' && toggle) {
-      textareaElem.style.fontStyle = 'italic';
+      textEditor.style.fontStyle = 'italic';
     } else if (typoElemId === 'italic' && !toggle) {
-      textareaElem.style.fontStyle = 'normal';
+      textEditor.style.fontStyle = 'normal';
     }
     // apply style based on condition for underline
     if (typoElemId === 'underline' && toggle) {
-      textareaElem.style.textDecoration = 'underline';
+      textEditor.style.textDecoration = 'underline';
     } else if (typoElemId === 'underline' && !toggle) {
-      textareaElem.style.textDecoration = 'none';
+      textEditor.style.textDecoration = 'none';
     }
   }
 });
@@ -42,23 +45,41 @@ alignmentsElem.addEventListener('click', function (e) {
     element.classList.remove('selected');
   }
   // set delegate permision only children
-  if (e.target.matches('.alignment')) {
+  if (e.target.matches('.icon')) {
     // get specific element id
     const alignElemId = e.target.getAttribute('id');
     // add class to the element
     e.target.classList.add('selected');
     // set text align styles specificly
     if (alignElemId === 'left-align') {
-      textareaElem.style.textAlign = 'left';
+      textEditor.style.textAlign = 'left';
     } else if (alignElemId === 'center-align') {
-      textareaElem.style.textAlign = 'center';
+      textEditor.style.textAlign = 'center';
     } else if (alignElemId === 'right-align') {
-      textareaElem.style.textAlign = 'right';
+      textEditor.style.textAlign = 'right';
     } else if (alignElemId === 'justify-align') {
-      textareaElem.style.textAlign = 'justify';
+      textEditor.style.textAlign = 'justify';
     }
   }
 });
+
+// add event listener on select option
+selectElem.addEventListener('click', function () {
+  let fontSize = selectElem.value;
+  // set font size
+  textEditor.style.fontSize = fontSize;
+});
+
+// add event listener on color input
+const colorInput = document.getElementById('color-gen');
+colorInput.addEventListener('input', function () {
+  const selectedColor = colorInput.value;
+  textEditor.style.color = selectedColor;
+  textColorElem.style.color = selectedColor;
+});
+// colorInput.addEventListener('click', function () {
+//   colorInput.style.display = 'none';
+// });
 
 function toggleTypoSelect(event) {
   if (!event.style.backgroundColor) {

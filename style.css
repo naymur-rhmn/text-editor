@@ -41,9 +41,14 @@ body {
   padding: 4px;
 }
 .left-interface,
-.middle-interface {
+.middle-interface,
+.right-interface {
   display: flex;
   gap: 14px;
+}
+.right-interface {
+  display: flex;
+  align-items: center;
 }
 #italic {
   font-style: italic;
@@ -54,12 +59,21 @@ body {
   padding: 0 2px;
   border-radius: 2px;
 }
-.alignment {
-  text-transform: capitalize;
-  font-weight: 600;
+
+.icon {
   cursor: default;
-  padding: 0 4px;
+  padding: 4px;
   border-radius: 3px;
+}
+
+#font-size {
+  outline: none;
+}
+
+#color-gen {
+  border: none;
+  padding: 0;
+  background-color: inherit;
 }
 
 /* hover statemetns */
@@ -81,6 +95,8 @@ body {
   resize: none;
   font-size: 18px;
   padding: 8px;
+
+  height: 400px;
 }
 
 /* toggle class */
